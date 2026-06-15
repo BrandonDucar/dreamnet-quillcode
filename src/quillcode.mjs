@@ -77,10 +77,7 @@ ${list(packet.implementation.steps)}
 ## Tests
 ${list(packet.implementation.tests)}
 
-## Evidence
-${evidence(packet.evidence)}
-
-## Approval Required
+## Receipt`nStorage: ${packet.receipt?.storage ?? 'none'}`nStatus: ${packet.receipt?.status ?? 'planned'}`nBlob ID: ${packet.receipt?.blobId || 'not stored yet'}`nURL: ${packet.receipt?.url || 'not stored yet'}`n`n## Evidence`n${evidence(packet.evidence)}`n`n## Approval Required
 ${list(packet.approvalRequired)}
 `;
 }
@@ -109,3 +106,4 @@ try {
   console.error(`QuillCode failed: ${error.message}`);
   process.exit(1);
 }
+

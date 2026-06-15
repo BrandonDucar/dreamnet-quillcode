@@ -58,5 +58,11 @@
     "Writing ENS records",
     "Publishing attestations",
     "Deploying a public verifier"
-  ]
+  ],
+  "receipt": {
+    "storage": "walrus",
+    "status": "planned",
+    "blobId": "",
+    "url": ""
+  }
 }

@@ -49,6 +49,15 @@
         "tests": { "type": "array", "items": { "type": "string" } }
       }
     },
+    "receipt": {
+      "type": "object",
+      "properties": {
+        "storage": { "type": "string", "enum": ["none", "walrus", "local", "other"] },
+        "blobId": { "type": "string" },
+        "url": { "type": "string" },
+        "status": { "type": "string", "enum": ["planned", "draft", "stored", "verified"] }
+      }
+    },
     "evidence": {
       "type": "array",
       "items": {

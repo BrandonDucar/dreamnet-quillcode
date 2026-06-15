@@ -23,6 +23,8 @@ A QuillCode packet is not allowed to escalate unless the review quorum reaches a
 
 ## What QuillCode Does
 
+- carries future Walrus receipt pointers for durable decision artifacts,
+
 - validates a steward proposal packet,
 - checks quorum approval threshold,
 - carries immunity/safety notes,
@@ -46,6 +48,13 @@ npm test
 node src/quillcode.mjs examples/ens-agent-text-records.quillcode.json --out out/ens-brief.md
 ```
 
+## Receipt Layer
+
+QuillCode treats Walrus as the preferred storage layer for final receipts. The packet can start without a Walrus blob, but once a build is approved or demonstrated, the receipt pointer should be added as evidence instead of pretending the UI state is the proof.
+
+Blink and Unlink stay as private DreamNet partner labs for treasury and private commerce. QuillCode can reference them, but does not spend funds or execute private transactions itself.
+
 ## Public Role
 
 This repo is public because the packet structure is part of DreamNet's external trust story: agent ideas become actionable only after evidence, quorum, and safety review.
+
