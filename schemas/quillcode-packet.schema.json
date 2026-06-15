@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dreamnet.dev/schemas/quillcode-packet.schema.json",
+  "title": "DreamNet QuillCode Packet",
+  "type": "object",
+  "required": ["version", "id", "repo", "steward", "idea", "quorum", "immunity", "implementation", "evidence"],
+  "properties": {
+    "version": { "type": "string" },
+    "id": { "type": "string" },
+    "repo": { "type": "string" },
+    "steward": { "type": "string" },
+    "sourceSignal": { "type": "string" },
+    "idea": {
+      "type": "object",
+      "required": ["title", "summary", "whyNew"],
+      "properties": {
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "whyNew": { "type": "string" }
+      }
+    },
+    "quorum": {
+      "type": "object",
+      "required": ["approved", "rejected", "abstained", "threshold", "total"],
+      "properties": {
+        "approved": { "type": "integer", "minimum": 0 },
+        "rejected": { "type": "integer", "minimum": 0 },
+        "abstained": { "type": "integer", "minimum": 0 },
+        "threshold": { "type": "integer", "minimum": 1 },
+        "total": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "immunity": {
+      "type": "object",
+      "required": ["status", "level", "findings"],
+      "properties": {
+        "status": { "type": "string", "enum": ["not_run", "simulation", "advisory", "blocking", "passed"] },
+        "level": { "type": "string" },
+        "findings": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "required": ["branch", "steps", "tests"],
+      "properties": {
+        "branch": { "type": "string" },
+        "files": { "type": "array", "items": { "type": "string" } },
+        "steps": { "type": "array", "items": { "type": "string" } },
+        "tests": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "url"],
+        "properties": {
+          "label": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "approvalRequired": { "type": "array", "items": { "type": "string" } }
+  }
+}

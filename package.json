@@ -1,0 +1,17 @@
+{
+  "name": "dreamnet-quillcode",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "DreamNet agent build-packet compiler with quorum and immunity gates.",
+  "bin": {
+    "quillcode": "src/quillcode.mjs"
+  },
+  "scripts": {
+    "test": "node src/quillcode.mjs examples/ens-agent-text-records.quillcode.json --out out/test-brief.md"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "version": "0.1.0",
+  "id": "ens-agent-text-records-001",
+  "repo": "dreamnet-ens",
+  "steward": "Genealogist",
+  "sourceSignal": "ENSIP-26 agent text records create a natural metadata surface for agent identity and discoverability.",
+  "idea": {
+    "title": "ENS Agent Text Record Verifier",
+    "summary": "Add a verifier that reads agent ENS text records and compiles a portable identity receipt for DreamNet steward agents.",
+    "whyNew": "Most ENS demos stop at resolving names. This treats ENS records as machine-readable agent identity and discovery metadata."
+  },
+  "quorum": {
+    "approved": 24,
+    "rejected": 4,
+    "abstained": 3,
+    "threshold": 22,
+    "total": 31
+  },
+  "immunity": {
+    "status": "simulation",
+    "level": "low",
+    "findings": [
+      "Read-only resolver flow.",
+      "No wallet signing required for the first prototype.",
+      "Do not publish attestations until real records are verified."
+    ]
+  },
+  "implementation": {
+    "branch": "agent/genealogist/ensip26-agent-text-records",
+    "files": [
+      "src/ens-record-reader.ts",
+      "schemas/agent-identity-receipt.schema.json",
+      "examples/agent-records.sample.json"
+    ],
+    "steps": [
+      "Read ENS name from operator input.",
+      "Resolve text records using a read-only provider.",
+      "Normalize records into a DreamNet identity receipt.",
+      "Display unresolved/missing records as warnings, not failures."
+    ],
+    "tests": [
+      "Run schema validation against the sample receipt.",
+      "Run read-only resolver smoke with known public ENS names.",
+      "Run secrets guard before commit."
+    ]
+  },
+  "evidence": [
+    {
+      "label": "ENS agent text records",
+      "url": "https://docs.ens.domains/ensip/26/"
+    },
+    {
+      "label": "ENS agent registry verification",
+      "url": "https://docs.ens.domains/ensip/25/"
+    }
+  ],
+  "approvalRequired": [
+    "Writing ENS records",
+    "Publishing attestations",
+    "Deploying a public verifier"
+  ]
+}
