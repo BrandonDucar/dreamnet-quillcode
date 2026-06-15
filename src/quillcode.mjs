@@ -77,7 +77,16 @@ ${list(packet.implementation.steps)}
 ## Tests
 ${list(packet.implementation.tests)}
 
-## Receipt`nStorage: ${packet.receipt?.storage ?? 'none'}`nStatus: ${packet.receipt?.status ?? 'planned'}`nBlob ID: ${packet.receipt?.blobId || 'not stored yet'}`nURL: ${packet.receipt?.url || 'not stored yet'}`n`n## Evidence`n${evidence(packet.evidence)}`n`n## Approval Required
+## Receipt
+Storage: ${packet.receipt?.storage ?? 'none'}
+Status: ${packet.receipt?.status ?? 'planned'}
+Blob ID: ${packet.receipt?.blobId || 'not stored yet'}
+URL: ${packet.receipt?.url || 'not stored yet'}
+
+## Evidence
+${evidence(packet.evidence)}
+
+## Approval Required
 ${list(packet.approvalRequired)}
 `;
 }
